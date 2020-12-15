@@ -9,7 +9,7 @@ body {
     text-align: center;
 }
 
-#quiz-box {
+#start-box {
     background-color:blueviolet;
     width: 800px;
     height: 600px;
@@ -21,4 +21,14 @@ button {
     height: 75px;
     width: auto;
 
+}
+
+#quiz-box {
+    background-color:blueviolet;
+    width: 800px;
+    height: 600px;
+}
+
+ul {
+    text-align: left;
 }
