@@ -1,7 +1,7 @@
 var startBox = document.getElementById("start-box");
 var startButton = document.getElementById("start-btn");
 var quizBox = document.getElementById("quiz-box");
-var quizQuestionNumber = 0;
+var questionNumber = 0;
 var score = 0;
 
 
@@ -54,18 +54,30 @@ function displayQuestions(index) {
     console.log(quizQuestions[index]);
 
     var questionHeading = document.createElement("h1");
-    questionHeading.textContent = quizQuestions[quizQuestionNumber].heading;
-    console.log(quizQuestions[quizQuestionNumber].heading);
+    questionHeading.textContent = quizQuestions[questionNumber].heading;
+    console.log(quizQuestions[questionNumber].heading);
     quizBox.append(questionHeading);
+
+    var questionText = document.createElement("h3");
+    questionText.textContent = quizQuestions[questionNumber].question;
+    console.log(quizQuestions[questionNumber].question);
+    quizBox.append(questionText);
 
     var headingBreak = document.createElement("hr");
     quizBox.append(headingBreak);
 
-    var questionText = document.createElement("h3");
-    questionText.textContent = quizQuestions[quizQuestionNumber].question;
-    console.log(quizQuestions[quizQuestionNumber].question);
-    quizBox.append(questionText);
+    var questionList = document.createElement("ul");
+    quizBox.append(questionList);
 
+    for (var i = 0; i < quizQuestions[questionNumber].choices.length; i++){
+    var choiceOrder = document.createElement("li");
+    quizBox.lastChild.append(choiceOrder);
 
+    var choiceButtons = document.createElement("button");
+    choiceButtons.setAttribute ("id", "choice-buttons")
+    choiceButtons.textContent = quizQuestions[questionNumber].choices[i];
+    choiceOrder.append(choiceButtons);
+    }
+    
 }
 

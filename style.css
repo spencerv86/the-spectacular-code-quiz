@@ -32,3 +32,8 @@ button {
 ul {
     text-align: left;
 }
+
+#choice-buttons {
+    width: 300px;
+    margin: 8px;
+}
