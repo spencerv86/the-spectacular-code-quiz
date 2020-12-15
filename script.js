@@ -53,6 +53,8 @@ function displayQuestions(index) {
     
     console.log(quizQuestions[index]);
 
+    quizBox.innerHTML = "";
+
     var questionHeading = document.createElement("h1");
     questionHeading.textContent = quizQuestions[questionNumber].heading;
     console.log(quizQuestions[questionNumber].heading);
@@ -74,10 +76,30 @@ function displayQuestions(index) {
     quizBox.lastChild.append(choiceOrder);
 
     var choiceButtons = document.createElement("button");
-    choiceButtons.setAttribute ("id", "choice-buttons")
+    choiceButtons.id = [i];
+    choiceButtons.setAttribute ("class", "choice-buttons")
     choiceButtons.textContent = quizQuestions[questionNumber].choices[i];
     choiceOrder.append(choiceButtons);
+
+    choiceButtons.addEventListener("click", function() {
+        console.log(this.textContent);
+        console.log(quizQuestions[questionNumber].answer);
+        questionNumber++;
+        displayQuestions();
+        checkAnswers();
+    })
     }
-    
 }
 
+
+function checkAnswers();
+// quizBox.addEventListener("click", function(event){
+//     if (event.target.nodeName == "button") {
+//         console.log("Button clicked!")
+//     }
+// })
+
+
+// evalAnswer --> function() {
+    // console.log(this.textContent);
+// }
