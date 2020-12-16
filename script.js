@@ -1,6 +1,7 @@
 var startBox = document.getElementById("start-box");
 var startButton = document.getElementById("start-btn");
 var quizBox = document.getElementById("quiz-box");
+var endBox = document.getElementById("end-box")
 var questionNumber = 0;
 var score = 0;
 
@@ -50,8 +51,12 @@ startButton.addEventListener("click", function() {
 // Function to display the questions after the startButton has been pressed.
 
 function displayQuestions(index) {
-    
-    console.log(quizQuestions[index]);
+    if (questionNumber > 4) {
+        endGame();
+        return;
+    } else {
+
+    console.log(quizQuestions[questionNumber]);
 
     quizBox.innerHTML = "";
 
@@ -82,17 +87,35 @@ function displayQuestions(index) {
     choiceOrder.append(choiceButtons);
 
     choiceButtons.addEventListener("click", function() {
-        console.log(this.textContent);
-        console.log(quizQuestions[questionNumber].answer);
+        var yourAnswer = (this.textContent);
+        var theAnswer = (quizQuestions[questionNumber].answer);
+        console.log(yourAnswer);
+        console.log(theAnswer);
         questionNumber++;
         displayQuestions();
-        checkAnswers();
+        checkAnswers(yourAnswer, theAnswer);
     })
     }
 }
+}
 
 
-function checkAnswers();
+function checkAnswers(yourAnswer, theAnswer) {
+    if (yourAnswer === theAnswer) {
+        var correctAnswer = document.createElement("h4");
+        correctAnswer.textContent = "Good Job!"
+        quizBox.append(correctAnswer);
+    } else {
+        var wrongAnswer = document.createElement("h4");
+        wrongAnswer.textContent = "WRONG"
+        quizBox.append(wrongAnswer);
+    }
+}
+
+function endGame() {
+    quizBox.classList.add("d-none");
+    endBox.classList.remove("d-none");
+}
 // quizBox.addEventListener("click", function(event){
 //     if (event.target.nodeName == "button") {
 //         console.log("Button clicked!")

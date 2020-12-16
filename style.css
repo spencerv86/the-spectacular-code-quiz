@@ -37,3 +37,16 @@ ul {
     width: 300px;
     margin: 8px;
 }
+
+#end-box {
+    background-color:blueviolet;
+    width: 800px;
+    height: 600px;
+    padding: 125px;
+}
+
+h1 {
+    text-align:center;
+    margin-top: 5px;
+}
+
