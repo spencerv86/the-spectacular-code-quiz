@@ -6,7 +6,8 @@ displayScores();
 
 clearButton.addEventListener("click", function(event){
 
-    localStorage.clear()
+    localStorage.clear();
+    window.location.reload();
 
 })
 
