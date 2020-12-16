@@ -5,6 +5,9 @@ body {
 .nav-link {
     font-size: 26px;
 }
+
+
+
 .container-lg {
     text-align: center;
 }
@@ -31,6 +34,7 @@ button {
 
 ul {
     text-align: left;
+    list-style: none;
 }
 
 .choice-buttons {
