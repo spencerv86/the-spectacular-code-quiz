@@ -6,9 +6,9 @@ var winInit = document.getElementById("winner-initials")
 var hiScoreButton = document.getElementById("hi-score");
 var timer = document.getElementById("timer");
 var questionNumber = 0;
-// var score = 0;
 var interval;
 var timeRemaining;
+
 
 
 var quizQuestions = [
@@ -73,7 +73,7 @@ function startTimer() {
   interval = setInterval(function (event) {
     timeRemaining--;
     timer.textContent = "Time left: " + timeRemaining;
-    if (timeRemaining === 0) {
+    if (timeRemaining === 0 || timeRemaining < 0) {
       clearInterval(interval);
       endGame();
     }
@@ -157,12 +157,22 @@ function endGame() {
   endBox.prepend(finalMessage);
 
   var finalScore = document.createElement("h3");
-  finalScore.textContent = "Your final score is " + timeRemaining;
-  endBox.append(finalScore);
+  if (timeRemaining === 0) {
+      finalScore.textContent = "Your final score is 0. (Wouldn't blame ya if you didn't save this one..)";
+      endBox.append(finalScore);
+  } else {
+    finalScore.textContent = "Your final score is " + timeRemaining;
+    endBox.append(finalScore);
+  }
+
 
 }
 
 
-function submitScores() {
+hiScoreButton.addEventListener("click", function(event) {
 
-}
+    var initials = winInit.value;
+
+    localStorage.setItem("Winner initials", initials);
+    localStorage.setItem("Hi Score", timeRemaining);
+})
