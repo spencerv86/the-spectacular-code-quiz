@@ -8,6 +8,7 @@ body {
 
 .container-lg {
     text-align: center;
+    margin-top: 20px;
 }
 
 #start-box {
@@ -31,7 +32,7 @@ button {
 }
 
 ul {
-    text-align: left;
+    text-align: center;
     list-style: none;
 }
 

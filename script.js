@@ -8,6 +8,7 @@ var timer = document.getElementById("timer");
 var questionNumber = 0;
 var interval;
 var timeRemaining;
+var listOfHighScores = [];
 
 
 
@@ -173,9 +174,9 @@ hiScoreButton.addEventListener("click", function(event) {
     
     var userData = {
         initials: winInit.value,
-        hiscore: timeRemaining,
+        score: timeRemaining,
     }
-
-    localStorage.setItem("userData", JSON.stringify(userData));
+    listOfHighScores.push(userData),
+    localStorage.setItem("userData", JSON.stringify(listOfHighScores));
 
 })
