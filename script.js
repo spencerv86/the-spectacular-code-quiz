@@ -2,11 +2,14 @@ var startBox = document.getElementById("start-box");
 var startButton = document.getElementById("start-btn");
 var quizBox = document.getElementById("quiz-box");
 var endBox = document.getElementById("end-box");
+var winInit = document.getElementById("winner-initials")
+var hiScoreButton = document.getElementById("hi-score");
+var timer = document.getElementById("timer");
 var questionNumber = 0;
-var score = 0;
+// var score = 0;
 var interval;
 var timeRemaining;
-var timer = document.getElementById("timer");
+
 
 var quizQuestions = [
   {
@@ -135,6 +138,7 @@ function checkAnswers(yourAnswer, theAnswer) {
   } else {
     var wrongAnswer = document.createElement("h4");
     wrongAnswer.textContent = "WRONG";
+    wrongAnswer.style.color =  "red";
     quizBox.append(wrongAnswer);
     timeRemaining = timeRemaining - 10;
   }
@@ -155,5 +159,10 @@ function endGame() {
   var finalScore = document.createElement("h3");
   finalScore.textContent = "Your final score is " + timeRemaining;
   endBox.append(finalScore);
+
+}
+
+
+function submitScores() {
 
 }
