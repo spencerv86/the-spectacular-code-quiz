@@ -144,4 +144,16 @@ function endGame() {
 // Hide quizBox and reveal endBox
   quizBox.classList.add("d-none");
   endBox.classList.remove("d-none");
+// End the timer
+  clearInterval(interval);
+
+
+  var finalMessage = document.createElement("h1");
+  finalMessage.textContent = "That's a game over!";
+  endBox.prepend(finalMessage);
+
+  var finalScore = document.createElement("h3");
+  finalScore.textContent = "Your final score is " + timeRemaining;
+  endBox.append(finalScore);
+
 }
