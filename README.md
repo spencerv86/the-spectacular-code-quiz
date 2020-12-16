@@ -1,4 +1,4 @@
-# the-spectacular-code-quiz
+# The Spectacular Code Quiz
 
 # 04 Web APIs: Code Quiz
 

@@ -170,9 +170,12 @@ function endGame() {
 
 
 hiScoreButton.addEventListener("click", function(event) {
+    
+    var userData = {
+        initials: winInit.value,
+        hiscore: timeRemaining,
+    }
 
-    var initials = winInit.value;
+    localStorage.setItem("userData", JSON.stringify(userData));
 
-    localStorage.setItem("Winner initials", initials);
-    localStorage.setItem("Hi Score", timeRemaining);
 })
